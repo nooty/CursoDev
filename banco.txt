@@ -1,0 +1,23 @@
+create database dev;
+
+create table categoria_receita
+(
+    id         serial      not null primary key,
+    descricao varchar(45) not null
+);
+
+create table categoria_despesa
+(
+    id         serial      not null primary key,
+    descricao varchar(45) not null
+);
+
+create table movimento
+(
+    id                   serial         not null primary key,
+    categoria_receita_id integer references categoria_receita,
+    categoria_despesa_id integer references categoria_despesa,
+    descricao            varchar(45)    not null,
+    data                 date           not null,
+    valor                decimal(10, 2) not null
+);

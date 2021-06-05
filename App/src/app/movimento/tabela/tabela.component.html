@@ -1,0 +1,60 @@
+<ejs-grid #tabela id='tabela' [dataSource]='movimentos' [toolbar]='menuOpcoes' [editSettings]='edicaoConfiguracao'
+    [filterSettings]='filtroConfiguracao' [allowFiltering]='true' [allowExcelExport]='true' [allowSorting]='true'
+    [allowGrouping]='true' [allowReordering]='true' [allowResizing]='true' [allowTextWrap]='true' [enableAltRow]='true'
+    [height]='480' (actionBegin)='acaoIniciada($event)' (actionComplete)='acaoCompleta($event)'
+    (created)='tabelaCarregada()' (toolbarClick)='acaoToolbar($event)'>
+    <e-columns>
+        <e-column [field]="'id'" [headerText]="'Id'" [allowEditing]='false' [visible]='false' [isPrimaryKey]='true'
+            [width]='60'></e-column>
+        <e-column [field]="'categoriaTipo'" [headerText]="'Tipo'" [width]='100' [allowEditing]='false'>
+            <ng-template #template let-data>
+                <div *ngIf="data.categoriaTipo == 'Despesa'" style="
+                    display: flex;
+                    color: red;
+                    font-weight: 900;
+                "><span _ngcontent-ffv-c99="" class="material-icons" style="
+                    font-size: 18px;
+                    margin-right: 4px;
+                "> south </span> Despesa</div>
+
+                <div *ngIf="data.categoriaTipo == 'Receita'" style="
+                display: flex;
+                color: green;
+                font-weight: 900;
+                "><span _ngcontent-ffv-c99="" class="material-icons" style="
+                font-size: 18px;
+                margin-right: 4px;
+                "> north </span> Receita</div>
+            </ng-template>
+        </e-column>
+        <e-column field='data' [headerText]="'Data'" [type]="'date'" [format]="{type: 'date', format: 'dd/MM/yyyy'}"
+            [editType]="'datepickeredit'" [validationRules]='{  required: true }'>
+
+        </e-column>
+        <e-column [field]="'categoriaDescricao'" [headerText]="'Categoria'" [validationRules]='{  required: true }'>
+            <ng-template #editTemplate let-data>
+                <ejs-dropdownlist *ngIf="data.categoriaTipo === 'Despesa'" name='categoriaDescricao'
+                    [(ngModel)]='movimentoEd.categoriaId' (select)='mudouSelecao($event)'
+                    [dataSource]='categoriasDespesas' [fields]="{ text: 'descricao', value: 'id' }"></ejs-dropdownlist>
+
+                <ejs-dropdownlist *ngIf="data.categoriaTipo === 'Receita'" name='categoriaDescricao'
+                    [(ngModel)]='movimentoEd.categoriaId' (select)='mudouSelecao($event)'
+                    [dataSource]='categoriasReceitas' [fields]="{ text: 'descricao', value: 'id' }"></ejs-dropdownlist>
+            </ng-template>
+        </e-column>
+        <e-column [field]="'descricao'" [headerText]="'Descrição'" [validationRules]='{  required: true }'></e-column>
+        <e-column [field]="'valor'" [headerText]="'Valor'" [editType]="'numericedit'"
+            [validationRules]='{  required: true }'>
+        </e-column>
+    </e-columns>
+
+    <e-aggregates>
+        <e-aggregate>
+            <e-columns>
+                <e-column columnName="valor" type="Custom" [customAggregate]="somador">
+                    <ng-template #footerTemplate let-data>Total: {{data.Custom | currency : 'R$ ' }}</ng-template>
+                </e-column>
+            </e-columns>
+        </e-aggregate>
+    </e-aggregates>
+</ejs-grid>

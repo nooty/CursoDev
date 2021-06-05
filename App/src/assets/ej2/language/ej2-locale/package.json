@@ -1,0 +1,54 @@
+{
+  "_from": "@syncfusion/ej2-locale",
+  "_id": "@syncfusion/ej2-locale@17.3.14",
+  "_inBundle": false,
+  "_integrity": "sha512-kkvYC7OVOT0tNQS28YcI0wlME6xzLSvB4XfD/jQZLnsPEyr2SI12u5FI6o7X+ODuIYZPpYuDsl7Qc6Wk0nBMVw==",
+  "_location": "/@syncfusion/ej2-locale",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@syncfusion/ej2-locale",
+    "name": "@syncfusion/ej2-locale",
+    "escapedName": "@syncfusion%2fej2-locale",
+    "scope": "@syncfusion",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@syncfusion/ej2-locale/-/ej2-locale-17.3.14.tgz",
+  "_shasum": "1b6f0f4b65ae43ecab345814fa7d6b1471e19ec2",
+  "_spec": "@syncfusion/ej2-locale",
+  "_where": "C:\\Users\\Nooty\\Documents\\SMO\\SMOApp",
+  "author": {
+    "name": "Syncfusion Inc."
+  },
+  "bugs": {
+    "url": "https://github.com/syncfusion/ej2-locale/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "localized text for all Essential JS 2 Component in various languages",
+  "homepage": "https://github.com/syncfusion/ej2-locale#readme",
+  "keywords": [
+    "ej2",
+    "syncfusion",
+    "ej2 base",
+    "base",
+    "library",
+    "ej2-locale-text",
+    "locale",
+    "l10n"
+  ],
+  "license": "SEE LICENSE IN license",
+  "name": "@syncfusion/ej2-locale",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syncfusion/ej2-locale.git"
+  },
+  "version": "17.3.14"
+}

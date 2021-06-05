@@ -1,0 +1,25 @@
+<ejs-grid #tabela id='tabela' [dataSource]='categorias' [toolbar]='menuOpcoes'
+[editSettings]='edicaoConfiguracao' [filterSettings]='filtroConfiguracao'
+[allowFiltering]='true' [allowExcelExport]='true' 
+[allowSorting]='true' [allowGrouping]='true'
+[allowReordering]='true' [allowResizing]='true' [allowTextWrap]='true'
+[enableAltRow]='true' [height]='480'
+(actionComplete)='acaoCompleta($event)'
+(toolbarClick)='acaoToolbar($event)'>
+<e-columns>
+    <e-column [field]="'id'" [headerText]="'Id'" 
+        [allowEditing]='false' [visible]='false'
+    [isPrimaryKey]='true' [width]='60'></e-column>
+    
+    <e-column [field]="'tipo'" [visible]='true' 
+    [isPrimaryKey]='true' [headerText]="'Tipo'" [width]='100' [allowEditing]='false'> 
+    <ng-template #editTemplate let-data>
+        <ejs-dropdownlist [enabled]='false' [value]='data.tipo' [text]='data.tipo'></ejs-dropdownlist >
+    
+    </ng-template>
+    </e-column>
+
+    <e-column [field]="'descricao'" [headerText]="'Categoria'"  [validationRules]='{  required: true }'>
+    </e-column>
+</e-columns>
+</ejs-grid>

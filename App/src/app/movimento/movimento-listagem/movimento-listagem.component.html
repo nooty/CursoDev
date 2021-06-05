@@ -1,0 +1,24 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Movimentos</h4>
+                        <p class="card-category">Listagem de movimentos cadastrados no período selecionado.</p>
+                    </div>
+                    <div class="card-date-body" [formGroup]='modeloFiltro'>
+                        <span>Período</span>
+                        <ejs-daterangepicker [showClearButton]='false' [format]="'dd//MM/yyyy'"
+                            [placeholder]="'Período Desejado'" formControlName='periodo'></ejs-daterangepicker>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <app-tabela [periodo]='periodo' [pesquisa]='pesquisa'></app-tabela>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

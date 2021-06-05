@@ -1,0 +1,31 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                    <ejs-chart [background]="'#00000000'" [legendSettings]="legandaEstilo" [border]='{ color: "#fff" }'
+                     [primaryXAxis]='primarioXAxis' 
+                    [primaryYAxis]='primarioYAxis'>
+                        <e-series-collection>
+                            <e-series [fill]="'#2D7DD2'" [marker]='marcaEstilo'  [dataSource]='movimentosReceita' type='Column' xName='x' yName='y' name='Receita' width=2 > </e-series>
+                            <e-series [fill]="'#FF312E'" [marker]='marcaEstilo' [dataSource]='movimentosDespesa' type='Column' xName='x' yName='y' name='Despesa' width=2 > </e-series>
+                        </e-series-collection>
+
+                    </ejs-chart>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Caixa nos Últimos Meses</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> -% </span> aumento em relação ao mês anterior.</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> atualizado 10 min atrás
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
